@@ -16,7 +16,7 @@ class Category(models.Model):
         return f'{self.name} ({self.slug})'
 
 class PriorityCount(models.Model):
-    name = models.CharField(max_length=10, blank=True, primary_key=True)
+    name = models.CharField(max_length=100, blank=True, primary_key=True)
     todos_count = models.IntegerField(default=0)
 
     def __str__(self):

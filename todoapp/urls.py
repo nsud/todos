@@ -1,10 +1,14 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from tasks.views import cache
+
 
 urlpatterns = [
     path('', include('tasks.urls', namespace="tasks")),
     path('admin/', admin.site.urls),
+    path('cache/', cache, name="date_cache")
+
 ]
 
 if not settings.DEBUG:

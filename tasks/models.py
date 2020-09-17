@@ -6,6 +6,7 @@ from django.urls import reverse
 class Category(models.Model):
     slug = models.CharField(max_length=128)
     name = models.CharField(max_length=256)
+    todos_count = models.PositiveIntegerField(default=0)
 
     class Meta:
         verbose_name = 'Категория'
@@ -14,6 +15,12 @@ class Category(models.Model):
     def __str__(self):
         return f'{self.name} ({self.slug})'
 
+class PriorityCount(models.Model):
+    name = models.CharField(max_length=10, blank=True, primary_key=True)
+    todos_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
 
 class TodoItem(models.Model):
     PRIORITY_HIGH = 1

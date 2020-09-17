@@ -7,7 +7,7 @@ from tasks.views import cache
 urlpatterns = [
     path('', include('tasks.urls', namespace="tasks")),
     path('admin/', admin.site.urls),
-    path('cache/', cache, name="date_cache")
+    path('date_cache/', cache, name="cache")
 
 ]
 
